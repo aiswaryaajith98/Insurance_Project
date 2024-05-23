@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Insurance</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/simple-datatables/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    
+    
+    .sidebar {
+        color: white;
+        width: 250px; 
+    }
+    body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000000;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+  }
+  form label {
+    font-weight: bold;
+    color: #555;
+  }
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  .mb-3 {
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    background-color: #0b1f35;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  aside {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  .main {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  .back-to-top:hover {
+    background-color: #0056b3;
+  }
+
+  .icon-container {
+            flex-direction: column;
+           
+            margin-top: -100px; 
+            text-align: center;
+           
+            
+        }
+        .icon-container div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .icon-container div i {
+            font-size: 30px;
+
+        }
+        .icon-container div:nth-child(1) i {
+            margin-top: 120px;
+            color:#ffffff;
+        }
+        .icon-container div:nth-child(2) i {
+            color: #ffffff;
+        }
+        .icon-container div:nth-child(3) i {
+            color:#ffffff;
+        }
+        .icon-container div:nth-child(4) i {
+            color: #ffffff;
+        }
+        .icon-container div:nth-child(5) i {
+            color: #ffffff;
+        }
+        .icon-container div:hover {
+            transform: scale(1.1);
+           
+            
+        }
+        .icon-container div:hover i {
+            color: #7d9dbd; 
+        }
+        .icon-container div {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .icon-container div.active i {
+            color: #7a9cbd;
+        }
+
+        .rounded-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; 
+        }
+
+@media (max-width: 575px) {
+  
+
+  .container {
+    max-width: 100%; 
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+
+  .form-control,
+  .form-select {
+    width: 100%; 
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .back-to-top {
+    right: 10px; 
+    bottom: 10px; 
+  }
+}
+
+
+</style>
+
+<body>
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="Company_Dashboard.html" class="logo d-flex align-items-center">
+            <img src="{% static 'images/icon.jpg' %}" alt="Company Logo" class="rounded-logo">
+            <span class="d-none d-lg-block">ProtecSure</span>
+          </a>
+          <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+    
+        <div class="search-bar">
+          <form class="search-form d-flex align-items-center" method="POST" action="#">
+            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+    
+        <nav class="header-nav ms-auto">
+          <ul class="d-flex align-items-center">
+    
+            <li class="nav-item d-block d-lg-none">
+              <a class="nav-link nav-icon search-bar-toggle " href="#">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+    
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-bell"></i>
+                <span class="badge bg-primary badge-number">4</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                <li class="dropdown-header">
+                    You have 4 new CRM notifications
+                    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+    
+              <li class="notification-item">
+                  <i class="bi bi-exclamation-circle text-warning"></i>
+                  <div>
+                      <h4>New Lead Assigned</h4>
+                      <p>A new lead has been assigned to you. Please review and follow up.</p>
+                      <p>30 min. ago</p>
+                  </div>
+              </li>
+              
+                <li class="notification-item">
+                    <i class="bi bi-exclamation-circle text-warning"></i>
+                    <div>
+                        <h4>New Lead Assigned</h4>
+                        <p>A new lead has been assigned to you. Please review and follow up.</p>
+                        <p>30 min. ago</p>
+                    </div>
+                </li>
+            
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="notification-item">
+                    <i class="bi bi-x-circle text-danger"></i>
+                    <div>
+                        <h4>Task Deadline Missed</h4>
+                        <p>The deadline for a task has passed. Take necessary actions.</p>
+                        <p>1 hr. ago</p>
+                    </div>
+                </li>
+            
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="notification-item">
+                    <i class="bi bi-check-circle text-success"></i>
+                    <div>
+                        <h4>Deal Closed</h4>
+                        <p>Congratulations! A deal has been successfully closed.</p>
+                        <p>2 hrs. ago</p>
+                    </div>
+                </li>
+            
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="notification-item">
+                    <i class="bi bi-info-circle text-primary"></i>
+                    <div>
+                        <h4>Meeting Reminder</h4>
+                        <p>You have a scheduled meeting in the next hour. Be prepared!</p>
+                        <p>4 hrs. ago</p>
+                    </div>
+                </li>
+            
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li class="dropdown-footer">
+                    <a href="#">Show all CRM notifications</a>
+                </li>
+            </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+    
+              <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-chat-left-text"></i>
+                <span class="badge bg-success badge-number">3</span>
+              </a>
+    
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                <li class="dropdown-header">
+                    You have 3 new CRM messages
+                    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="message-item">
+                    <a href="#">
+                        <img src="{% static 'img/message-1.jpg' %}" alt="" class="rounded-circle">
+                        <div>
+                            <h4>New Lead Inquiry</h4>
+                            <p>Maria Hudson is interested in your product. Contact her for more details.</p>
+                            <p>4 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="message-item">
+                    <a href="#">
+                        <img src="{% static 'img/message-2.jpg' %}" alt="" class="rounded-circle">
+                        <div>
+                            <h4>Task Update</h4>
+                            <p>Anna Nelson has provided an update on the ongoing task. Review the changes.</p>
+                            <p>6 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="message-item">
+                    <a href="#">
+                        <img src="{% static 'img/message-3.jpg' %}" alt="" class="rounded-circle">
+                        <div>
+                            <h4>Meeting Confirmation</h4>
+                            <p>David Muldon has confirmed the upcoming meeting. Prepare the agenda.</p>
+                            <p>8 hrs. ago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+            
+                <li class="dropdown-footer">
+                    <a href="#">Show all CRM messages</a>
+                </li>
+            </ul>
+            </li>
+    
+            <li class="nav-item dropdown pe-3">
+    
+              <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                <img src="{% static 'images/edit.jpg' %}" alt="Profile" class="rounded-circle">
+                <span class="d-none d-md-block dropdown-toggle ps-2">Aiswarya Ajith</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                <li class="dropdown-header">
+                  <h6>Aiswarya Ajith</h6>
+                  <span>Insurance Agent</span>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+    
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="">
+                    <i class="bi bi-person"></i>
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+    
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="">
+                    <i class="bi bi-gear"></i>
+                    <span>Account Settings</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+    
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href=#>
+                    <i class="bi bi-question-circle"></i>
+                    <span>Need Help?</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+    
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Sign Out</span>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+    
+          </ul>
+        </nav>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+        <!-- <a class="nav-link collapsed" href="{% url 'Agent_Dashboard' %}">
+            <i class="bi bi-grid"></i>
+            <span>Dashboard</span>
+        </a>      -->
+
+        <div class="icon-container">
+          <div id="homeIcon"  onclick="chooseIcon(this)" class="active">
+              <i class="bi bi-grid"></i> 
+          </div>
+          <br>
+          <div onclick="chooseIcon(this)">
+              <i class="bi bi-journal-text"></i> 
+          </div>
+          <br>
+          <div onclick="chooseIcon(this)"class="active">
+              <i class="bi bi-envelope"></i> 
+          </div>
+          <br>
+          <div onclick="chooseIcon(this)">
+              <i class="bi bi-card-list"></i> 
+          </div>
+          <br>
+          <div onclick="chooseIcon(this)">
+              <i class="bi bi-box-arrow-in-right"></i>
+          </div>   
+          <br>
+      </div>
+    </aside>
+
+    <main id="main" class="main">
+      <section id="customer-form" class="container mt-5">
+          <h1 style="text-decoration: underline;">Customer Information Form</h1>
+          <br>
+  
+          <section id="basic-details">
+              <h3>Basic Details</h3>
+              <br>
+              <form action="#" method="POST">
+                  <div class="mb-3">
+                      <label for="customer-name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="customer-name" name="customer-name">
+                  </div>
+                  <div class="mb-3">
+                      <label for="customer-phone" class="form-label">Phone Number</label>
+                      <input type="tel" class="form-control" id="customer-phone" name="customer-phone">
+                  </div>
+                  <div class="mb-3">
+                      <label for="customer-address" class="form-label">Address</label>
+                      <input type="text" class="form-control" id="customer-address" name="customer-address">
+                  </div>
+                  <div class="row">
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-age" class="form-label">Age</label>
+                          <input type="number" class="form-control" id="customer-age" name="customer-age">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="customer-dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="customer-dob" name="customer-dob">
+                    </div>
+                     
+                  </div>
+                  <div class="row">
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-qualification" class="form-label">Qualification</label>
+                          <input type="text" class="form-control" id="customer-qualification" name="customer-qualification">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="customer-profession" class="form-label">Profession</label>
+                        <input type="text" class="form-control" id="customer-profession" name="customer-profession">
+                    </div>
+                     
+                  </div>
+                  <div class="row">
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-aadhar" class="form-label">Aadhar Card Number</label>
+                          <input type="text" class="form-control" id="customer-aadhar" name="customer-aadhar">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-pan" class="form-label">PAN Card Number</label>
+                          <input type="text" class="form-control" id="customer-pan" name="customer-pan">
+                      </div>
+                  </div>
+              </form>
+          </section>
+  
+          <section id="additional-details">
+              <h3>Additional Details</h3>
+              <br>
+              <form>
+                  <div class="row">
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-income" class="form-label">Income Level</label>
+                          <input type="text" class="form-control" id="customer-income" name="customer-income">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                          <label for="customer-marital-status" class="form-label">Marital Status</label>
+                          <select class="form-select" id="customer-marital-status" name="customer-marital-status">
+                              <option value="single">Single</option>
+                              <option value="married">Married</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="customer-has-kids" class="form-label">Do you have kids?</label>
+                    <select class="form-select" id="customer-has-kids" name="customer-has-kids">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div id="kids-details">
+                      <div class="kid-details mb-3" style="display: none;">
+                          <label class="form-label">Kid Details</label>
+                          <button id="add-kid" class="btn btn-secondary">+</button>
+                          <div class="row">
+                              <div class="mb-3 col-md-6">
+                                  <input type="text" class="form-control" placeholder="Name" name="kid-name">
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                  <input type="text" class="form-control" placeholder="Age" name="kid-age">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <script>
+                    document.getElementById('add-kid').addEventListener('click', function() {
+                        var kidsDetails = document.getElementById('kids-details');
+                        var kidDetails = document.querySelector('.kid-details');
+                
+                        var newKidDetails = kidDetails.cloneNode(true); 
+                        newKidDetails.style.display = 'block'; 
+                        kidsDetails.appendChild(newKidDetails); 
+                    });
+                </script>
+                  <script>
+                    document.getElementById('customer-has-kids').addEventListener('change', function() {
+                        var kidsDetails = document.getElementById('kids-details');
+                        var kidDetails = document.querySelector('.kid-details');
+                
+                        if (this.value === 'yes') {
+                            kidsDetails.style.display = 'block';
+                            kidDetails.style.display = 'block';
+                        } else {
+                            kidsDetails.style.display = 'none';
+                            kidDetails.style.display = 'none';
+                        }
+                    });
+                </script>
+                  
+                  <div class="mb-3">
+                    <label for="customer-campaign-options" class="form-label">How did you hear about us?</label>
+                    <select class="form-select" id="customer-campaign-options" name="customer-campaign-options">
+                        <option value="friend">From a friend</option>
+                        <option value="family">From a family member</option>
+                        <option value="internet">Through the internet</option>
+                        <option value="social-media">Through social media</option>
+                        <option value="advertisement">Through advertisement</option>
+                        <option value="insurance-agent">From an insurance agent</option>
+                        <option value="mall-campaign">Through a mall campaign</option>
+                        <option value="event">From an event</option>
+                        <option value="other">Other (please specify)</option>
+                    </select>
+                </div>
+                
+                  <div class="mb-3">
+                      <label for="existing-profile" class="form-label">Existing Profile in the Policy</label>
+                      <select class="form-select" id="existing-profile" name="existing-profile">
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="customer-service-satisfaction" class="form-label">Customer Service Satisfaction</label>
+                      <input type="text" class="form-control" id="customer-service-satisfaction" name="customer-service-satisfaction">
+                  </div>
+                  <div class="mb-3">
+                      <label for="claim-satisfaction" class="form-label">Claim Satisfaction</label>
+                      <input type="text" class="form-control" id="claim-satisfaction" name="claim-satisfaction">
+                  </div>
+              </form>
+          </section>
+          <br>
+          <section id="insurance-markup-area">
+            <h3>Insurance Markup Area</h3>
+            <br>
+            <form action="#" method="POST">
+                <!-- Agent Visited Policy -->
+                <div class="mb-3">
+                    <label for="agent-visited-policy" class="form-label">Agent Visited Policy</label>
+                    <select class="form-select" id="agent-visited-policy" name="agent-visited-policy">
+                        <option value="car-insurance">Car Insurance</option>
+                        <option value="home-insurance">Home Insurance</option>
+                        <option value="life-insurance">Life Insurance</option>
+                        <option value="health-insurance">Health Insurance</option>
+                        <option value="travel-insurance">Travel Insurance</option>
+                        <option value="pet-insurance">Pet Insurance</option>
+                        <option value="business-insurance">Business Insurance</option>
+                        <option value="motorcycle-insurance">Motorcycle Insurance</option>
+                        <option value="renters-insurance">Renters Insurance</option>
+                        <option value="boat-insurance">Boat Insurance</option>
+                        <option value="umbrella-insurance">Umbrella Insurance</option>
+                        <option value="disability-insurance">Disability Insurance</option>
+                        <option value="vision-insurance">Vision Insurance</option>
+                        <option value="dental-insurance">Dental Insurance</option>
+                        <option value="critical-illness-insurance">Critical Illness Insurance</option>
+                    </select>
+                </div>
+        
+                <!-- Willingness to Purchase Insurance -->
+                <div class="mb-3">
+                    <label for="willingness-to-purchase" class="form-label">Willingness to Purchase Insurance</label>
+                    <select class="form-select" id="willingness-to-purchase" name="willingness-to-purchase">
+                        <option value="" selected disabled>Choose</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="maybe">Maybe</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="willingness-to-switch" class="form-label">Willingness to Switch Over Another Insurance</label>
+                    <select class="form-select" id="willingness-to-switch" name="willingness-to-switch">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                
+                <!-- Willingness to Share Previous Insurance -->
+                <div class="mb-3">
+                    <label for="willingness-to-share" class="form-label">Willingness to Share Previous Insurance</label>
+                    <select class="form-select" id="willingness-to-share" name="willingness-to-share">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+        
+                <!-- Previous Insurance Details (if willing to share) -->
+                <div id="previous-insurance-details" style="display: none;">
+                    <div class="mb-3">
+                        <label for="previous-insurance-number" class="form-label">Previous Insurance Number</label>
+                        <input type="text" class="form-control" id="previous-insurance-number" name="previous-insurance-number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="previous-insurance-name" class="form-label">Previous Insurance Name</label>
+                        <input type="text" class="form-control" id="previous-insurance-name" name="previous-insurance-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="previous-insurance-claimed" class="form-label">Previous Insurance Claimed?</label>
+                        <select class="form-select" id="previous-insurance-claimed" name="previous-insurance-claimed">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <!-- JavaScript to toggle visibility of previous insurance details -->
+                <script>
+                    document.getElementById('willingness-to-share').addEventListener('change', function() {
+                        var previousInsuranceDetails = document.getElementById('previous-insurance-details');
+                        if (this.value === 'yes') {
+                            previousInsuranceDetails.style.display = 'block';
+                        } else {
+                            previousInsuranceDetails.style.display = 'none';
+                        }
+                    });
+                </script>
+            </form>
+        </section>
+        <br>
+        <section id="summary">
+            <h3>Summary</h3>
+            <br>
+            <form action="#" method="POST">
+                <div class="mb-3">
+                    <label for="customer-preferences" class="form-label">Customer Preferences</label>
+                    <textarea class="form-control" id="customer-preferences" name="customer-preferences" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="agent-note" class="form-label">Agent Note</label>
+                    <textarea class="form-control" id="agent-note" name="agent-note" rows="3" placeholder="Add a note for the agent..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </section>
+  </main>
+
+  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/chart.js/chart.umd.js' %}"></script>
+  <script src="{% static 'vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
+        }
+        document.querySelector('.toggle-sidebar-btn').addEventListener('click', toggleSidebar);
+    </script>
+    <script>
+      var selectedIcon = null;
+  
+      function chooseIcon(element) {
+          if (selectedIcon) {
+              selectedIcon.classList.remove('active');
+          }
+          element.classList.add('active');
+          selectedIcon = element;
+  
+          var iconClass = element.querySelector('i').classList;
+  
+          switch (true) {
+              case iconClass.contains('bi-grid'):
+                  window.location.href = "{% url 'Agent_Dashboard' %}"; 
+                  break;
+              case iconClass.contains('bi-journal-text'):
+                  window.location.href = "{% url 'Agent_AgentProfile' %}"; 
+                  break;
+              case iconClass.contains('bi-envelope'):
+                  window.location.href = "{% url 'Agent_ClientInfo' %}"; 
+                  break;
+              case iconClass.contains('bi-card-list'): 
+                  break;
+              case iconClass.contains('bi-box-arrow-in-right'):
+                  window.location.href = "{% url 'Base' %}"; 
+                  break;
+              default:
+                  break;
+          }
+      }
+  </script>
+
+</body>
+
+</html>
