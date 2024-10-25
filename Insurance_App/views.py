@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def Base(request):
-    return render(request,'Base.html')
+def index(request):
+    return render(request,'index.html')
 
 #COMPANY
 def Company_Dashboard(request):
