@@ -5,7 +5,7 @@ def index(request):
 
 #COMPANY
 def Company_Dashboard(request):
-    return render(request,'company/Company_Dashboard.html')
+    return render(request,'company/Company_Dashboard/index.html')
 
 def Company_AgentDetails(request):
     return render(request,'company/Company_AgentDetails.html')
@@ -32,7 +32,7 @@ def Company_AgentTracking(request):
     return render(request,'company/Company_AgentTracking.html')
 #AGENTS
 def Agent_Dashboard(request):
-    return render(request,'agent/Agent_Dashboard.html')
+    return render(request,'company/Company_Dashboard/index.html')
 
 def Agent_AgentProfile(request):
     return render(request,'agent/Agent_AgentProfile.html')
