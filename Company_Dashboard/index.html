@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e9T9hXmJ58bldgTk+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-xnfnlURgeYEsG1Diz/2uN9bG7va6FQfH9Jf5eUklUZwLfGx2QnkqKT3eOHD6vtrq" crossorigin="anonymous">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <title>ProtecSure</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Pacifico', cursive;
+            font-size: 11px;
+            background-color: #EEF4ED;
+            color: #fff; 
+            
+        }
+        .profile-section {
+            width: 15%;
+            background-color: #134074;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 2000px;
+            text-align: center;
+            display: flex;
+            
+        }
+
+        .profile1-section {
+            width: 25%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 2000px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+            margin-left: 20px;
+            text-align: center;
+            padding-top: 40px; 
+            display: block;
+            
+        }
+
+        .dashboard-section {
+            width: 75%;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 1600px;
+            
+        }
+
+        .dashboard-container {
+            display: flex;
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 10px; 
+            text-align: center;
+            margin: -70px; 
+            
+        }
+        .icon-container div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .icon-container div i {
+            font-size: 30px;
+
+        }
+        .icon-container div:nth-child(1) i {
+            margin-top: 120px;
+            color:#ffffff;
+        }
+        .icon-container div:nth-child(2) i {
+            color: #ffffff;
+        }
+        .icon-container div:nth-child(3) i {
+            color:#ffffff;
+        }
+        .icon-container div:nth-child(4) i {
+            color: #ffffff;
+        }
+        .icon-container div:nth-child(5) i {
+            color: #ffffff;
+        }
+        .icon-container div:hover {
+            transform: scale(1.1);
+           
+            
+        }
+        .icon-container div:hover i {
+            color: #7d9dbd; 
+        }
+        .icon-container div {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .icon-container div.active i {
+            color: #7a9cbd;
+        }
+        .company-logo {
+            margin-right: 10px; 
+            
+        }
+        .company-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -5px;
+        }
+        .letter-blue { color: #ffffff; }
+        .letter-red { color: #ffffff; }
+        .letter-yellow { color: #ffffff; }
+        .letter-green { color: #ffffff; }
+        .letter-purple { color: #ffffff; }
+        .letter-orange { color: #ffffff; }
+        .letter-pink { color: #ffffff; }
+        .letter-teal { color: #ffffff; }
+
+        .additional-content {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .additional-content img {
+            width: 150px; 
+            height: auto; 
+            border-radius: 10px;
+            margin-left : -20px
+        }
+
+        .additional-content p {
+            color: #ffffff; 
+        }
+
+        .get-started-button {
+            background-color: #0B2545; 
+            color: #fff; 
+            padding: 10px 40px; 
+            border: none; 
+            border-radius: 20px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            margin-top: 15px; 
+        }
+
+        .get-started-button:hover {
+            background-color: #5E35B1; 
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #3498db;
+            margin: 20px auto;
+            transition: transform 0.3s ease-in-out; 
+            background-image: url('static/images/edit.jpg');
+            background-size: cover; 
+            background-position: center; 
+        }
+        .profile-pic:hover {
+            transform: scale(1.2);
+        }
+      
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .content-section:hover {
+            background-color: #dcdcdc; 
+        }
+        .row {
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 25px;
+        }
+        .row .card {
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            background-color: #ffffff;
+        }
+        .table th {
+            font-weight: bold;
+            background-color: #ffffff;
+        }
+        .table td, .table th {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .badge {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+        .badge-gradient-success {
+            background-color:#0B2545 ;
+            color: #fff;
+            border: none;
+            padding: 10px 33px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .badge-gradient-warning {
+            background-color:#0B2545 ;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .badge-gradient-info {
+            background-color:#0B2545 ;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .badge-gradient-danger {
+            background-color:#0B2545 ;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .card {
+            border: 1px solid #e1e5eb;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .table img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .large-card,
+        .small-card {
+            border-radius: 10px;
+            padding: 15px; 
+            box-sizing: border-box;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .large-card {
+            position: relative;
+            flex: 0 0 70%; 
+            margin-right: 20px; 
+            background-color: #13315C;
+            color: #ffffff;
+           
+        }
+        .header-image {
+            position: absolute;
+            top: 98px; 
+            right: 40px; 
+            width: 250px; 
+            height: 250px; 
+            border-radius: 15px;
+            background-color: #3498db;
+            overflow: hidden;
+            transform: translate(0, -50%); 
+            
+        }
+        .small-card {
+            flex: 0 0 30%;
+            
+            background-color: #0B2545;
+            color: #ffffff;
+            align-items: center; 
+            justify-content: center; 
+            
+        }
+        .percentage {
+            font-size: 24px;
+            color: #3498db;
+            
+        }
+        .graph-container {
+            width: 400px;
+            height: 450px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .graph {
+            display: inline-block;
+            width: 150px;
+            height: 80px;
+            margin-top: 13px;
+        }
+        .doughnut-container {
+            width: 370px;
+            height: 450px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .graph-container h3,
+        .doughnut-container h3 {
+            margin-top: -1px; 
+        }
+
+        .doughnut-graph-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            color: black;
+            flex-wrap: wrap;
+        }
+
+        .info-container {
+            text-align: center; 
+        }
+        .info-container h3 {
+            color: white; 
+        }
+
+        .info-container p {
+            color: rgb(255, 255, 255); 
+        }
+        
+        
+        .contact-icons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+
+        .message-button {
+            background-color: #8DA9C4;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+        }
+
+        .message-button i {
+            margin-right: 5px; 
+        }
+
+        .call-icon {
+            font-size: 24px;
+            color: #8DA9C4;
+            margin-right: 5px;
+        }
+        .try-now-button {
+            background-color: #fff;
+            color: #3498db;
+            padding: 10px 15px;
+            border: 2px solid #3498db;
+            border-radius: 20px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            margin-left: -400px;
+           
+            
+        }
+        .try-now-button:hover {
+            background-color: #8DA9C4;
+            color: #fff;
+        }
+        .chatbox {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            background-color: #faf6f6;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .chat-header {
+            background-color: #6884e0;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            padding: 10px;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .input-container button {
+            padding: 8px;
+            margin-left: 8px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ccc;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .close-button:hover {
+            background-color: #aaa;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+
+        #welcomeDate {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #574e4e;
+        }
+
+        .animated-smiley {
+            font-size: 40px;
+            animation: bounce 0.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+        
+        
+        .search-bar {
+            position: absolute;
+            top: 20px; 
+            right: 20px; 
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 8px;
+        }
+
+        .search-icon {
+            font-size: 20px; 
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .search-icon:hover {
+            transform: scale(1.2); 
+        }
+
+        .profile1-section img {
+            padding-top: 30px;
+            width: 200px; 
+            height: 200px; 
+            border-radius: 10px; 
+            display: block; 
+            margin: 0 auto; 
+        }
+
+        .profile-info {
+            color: #3498db; 
+            margin-top: 20px;
+        }
+
+        .profile-info h2 {
+            margin: 22px;
+            font-weight: bold; 
+            color: black; 
+            margin-left: 50px;
+        }
+
+        .profile-info p {
+            margin: 5px 0; 
+            color: black;
+        }
+
+        
+        .scheduler-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fdfcfc;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .scheduler-container h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #010305;
+        }
+
+        .scheduler-card {
+            background-color: #EEF4ED;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .scheduler-card .card-content {
+            padding: 10px;
+        }
+
+        .scheduler-card .topic {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .scheduler-card .event-button {
+            background-color: #13315C;
+            color: #fff;
+            padding: 3px 50px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .scheduler-card .website-link {
+            color: #060108;
+            font-size: 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .scheduler-card .website-link i {
+            margin-right: 5px;
+        }
+
+        .scheduler-card .calendar-icon {
+            font-size: 16px;
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .scheduler-card .date {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .scheduler-card .scrolling-line {
+            width: 100%;
+            height: 2px;
+            background-color: #8DA9C4;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 10px 10px;
+            cursor: ew-resize;
+            margin-top: 135px;
+            transition: background-color 0.3s, width 0.3s;
+        }
+        .scheduler-card .round-indicator {
+            position: absolute;
+            width: 20px; 
+            height: 20px; 
+            background-color: #134074;
+            border-radius: 50%;
+            left: 0;
+            top: -9px; 
+            cursor: grab;
+            transition: left 0.3s;
+        }
+        .scheduler-card .scrolling-line:hover {
+            background-color: #2980b9;
+        }
+
+
+        .scheduler-card .event-button,
+        .scheduler-card .website-link,
+        .scheduler-card .date {
+            margin-left: 20px; 
+        }
+
+        .time-indicator {
+            position: absolute;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .time-indicator.top-left {
+            top: 10px;
+            left: -10px;
+            
+        }
+
+        .time-indicator.bottom-left {
+            bottom: 10px;
+            left: -10px;
+        }
+        
+
+        
+
+        .close {
+            color: #ad0808;
+            position: absolute;
+            top: -50px;
+            right:60px;
+            
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+        
+        .toggle-container {
+            position: relative;
+           
+            
+        }
+
+        .toggle-profile {
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 250px;
+            background-color: #134074;
+            color: #fff;
+            padding: 8px;
+            border-radius: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+          
+        }
+
+       
+        .profile1-section.hidden {
+            display: none;
+        }
+        
+
+        .toggle-profile i {
+          
+            font-size: 18px;
+            
+        }
+        .card-footer {
+            margin-top: 20px;
+            text-align: center;
+        }   
+        .filter {
+            position: relative;
+            display: inline-block;
+            color: #0B2545;
+            background-color: #0B2545;
+        }
+
+        .icon {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            z-index: 1;
+        }
+
+
+        .budget {
+            max-width: 500px;
+            margin: 20px;
+            ;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .echart {
+            min-height: 600px;
+            
+        }
+
+        .white-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 50px;
+            overflow: auto;
+            
+        }
+
+        .card123 {
+            width: calc(33.33% - 30px);
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            display: inline-block; 
+            vertical-align: top; 
+        }
+
+        .card123:last-child {
+            margin-right: 0;
+        }
+
+        .card123 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .details {
+            padding: 10px;
+            color: #000000;
+        }
+
+        .see-more {
+            text-align: center;
+            clear: both; 
+        }
+
+        .see-more button {
+            background-color: #031930;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .see-more button:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-button {
+            background-color: #0e2e57; 
+            color: #fff; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 650px;  
+            width: 120px;
+        }
+
+        .logout-button:hover {
+            background-color: #cc0000; 
+        }
+        .logout-container {
+            text-align: right;
+            margin-top: 40px;
+        }
+
+        .logout-button i {
+            margin-right: 5px;
+        }
+        
+        .right-align {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px; 
+                
+        }
+
+        .icons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            color: #0B2545;
+            
+        }
+
+        .icons i {
+            margin-left: 30px;
+            cursor: pointer;
+            
+        }
+
+        @media only screen and (max-width: 1024px) {
+           
+            .try-now-button{
+                display: none;
+            }
+
+            .badge {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.45rem;
+                font-weight: 300;
+                display: block;
+                width: max-content;
+                margin: auto;
+            }
+
+            .profile1-section{
+               
+                height: 2850px;
+                
+            }
+
+           
+        }
+
+
+        @media only screen and (max-width: 912px) {
+
+            .dashboard-container {
+                overflow: hidden;
+            }
+
+            .dashboard-section {
+                width: 100%;
+                height: 2700px;
+            }
+
+            .profile1-section{
+                width: 350px;
+                height: 2850px;
+                
+            }
+            .profile-section{
+                width: 300px;
+                height: 2850px;
+                
+            }
+            .toggle-profile {
+                margin-left: -590px; 
+                display: none;
+            }
+            .header-image{
+                width: 100px;
+                height: 150px;
+                top: 50px;
+            }
+            .try-now-button{
+                display: none;
+            }
+
+            .search-bar{
+                display: none;
+            }
+            .badge {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.45rem;
+                font-weight: 300;
+                display: block;
+                width: max-content;
+                margin: auto;
+            }
+            
+           
+        }
+      
+       
+        @media only screen and (max-width: 820px)  {
+            .dashboard-container {
+                overflow: hidden;
+            }
+            
+            .profile-section {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100%;
+                z-index: 1000;
+                overflow-y: auto;
+                
+            }
+
+            #mobileMenuIcon {
+                display: block;
+                color: rgb(238, 238, 238);
+                font-size: 24px;
+                z-index: 1020;
+            }
+            
+            .dashboard-section {
+                width: 100%;
+                height: 2700px;
+            }
+
+            .profile1-section {
+                width: 100%; 
+                height: 2700px;
+                
+            }
+
+            .dashboard-section {
+                padding: 20px;
+                box-sizing: border-box;
+                height: 1050px;
+            }
+
+            .toggle-profile {
+                margin-left: -890px;
+                display: none; 
+            }
+
+            .toggle-profile i {
+                font-size: 16px;
+            }
+
+            .header-image {
+                position: absolute;
+                top: 60px; 
+                right: 10px; 
+                width: 100px; 
+                height: 150px; 
+            }
+
+            .try-now-button {
+                display: none;
+            }
+
+            .graph-container {
+                width: 370px;
+                height: 450px;
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .doughnut-container {
+                width: 370px;
+                height: 450px;
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                position: relative;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .badge {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.45rem;
+                font-weight: 300;
+                display: block;
+                width: max-content;
+                margin: auto;
+            }
+
+            .badge-gradient-success,
+            .badge-gradient-warning,
+            .badge-gradient-info,
+            .badge-gradient-danger {
+                padding: 10px 0px;    
+            }
+
+            .large-card {
+                position: relative;
+                flex: 0 0 60%; 
+                margin-left: -10px;   
+            }
+            .small-card {  
+                margin-left: -17px;    
+            }
+    }
+
+    @media only screen and (min-width: 580px) and (max-width: 768px) {
+            .dashboard-container {
+                overflow: hidden;
+            }
+            
+            .profile-section {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100%;
+                z-index: 1000;
+                overflow-y: auto;
+                
+            }
+
+            #mobileMenuIcon {
+                    display: block;
+                    
+                  
+                    color: rgb(238, 238, 238);
+                    font-size: 24px;
+                    z-index: 1020;
+                }
+
+            .dashboard-section {
+                width: 100%;
+                height: 2700px;
+            }
+
+            .profile1-section {
+                width: 100%;
+                height: 2700px;
+                
+            }
+
+            .dashboard-section {
+                padding: 20px;
+                box-sizing: border-box;
+                height: 1050px;
+            }
+
+            .toggle-profile {
+                margin-left: 505px; 
+                display: none;
+            }
+
+            .toggle-profile i {
+                font-size: 16px;
+            }
+
+            .header-image {
+                position: absolute;
+                top: 60px; 
+                right: 10px; 
+                width: 100px; 
+                height: 150px; 
+            }
+
+            .try-now-button {
+                display: none;
+            }
+
+            .graph-container {
+                width: 370px;
+                height: 450px;
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .doughnut-container {
+                width: 370px;
+                height: 450px;
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                position: relative;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .badge {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.45rem;
+                font-weight: 300;
+                display: block;
+                width: max-content;
+                margin: auto;
+            }
+
+            .badge-gradient-success,
+            .badge-gradient-warning,
+            .badge-gradient-info,
+            .badge-gradient-danger {
+                padding: 10px 0px;    
+            }
+
+            .large-card {
+                    position: relative;
+                    flex: 0 0 60%; 
+                    
+                    margin-left: -10px;
+                    
+                    
+                }
+                .small-card {
+                   
+                    margin-left: -17px; 
+                    
+                    
+                }
+    }
+
+
+    
+
+
+        @media screen and (max-width: 575px) {
+            .dashboard-container {
+                        flex-direction: column; 
+                        overflow-x: hidden;
+                          
+                    }
+                    .profile-section {
+                        display: none;
+                    }
+                    .profile-section,
+                    .dashboard-section,
+                    .profile1-section {
+                        width: 100%;
+                    }
+
+
+                .search-bar {
+                    display: none;
+                }
+
+                #mobileMenuIcon {
+                    display: block;
+                    text-align: right;
+                    padding: 10px;
+                    cursor: pointer;
+                    color: rgb(7, 6, 104);
+                    font-size: 24px;
+                }
+
+            
+            
+                .icon-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    margin-top: 10px; 
+                    text-align: center;
+                    margin: -70px; 
+                    
+                }
+                .icon-container div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+                
+
+                .icon-container div i {
+                    font-size: 30px;
+
+                }
+
+
+                .card-container {
+                    font-size: 8px;
+                }
+                
+                .header-image {
+                    position: absolute;
+                    top: 60px; 
+                    right: 10px; 
+                    width: 100px; 
+                    height: 150px; 
+        
+                }
+
+                .table td, .table th {
+                    padding: 0.36rem; 
+                }
+
+                .badge {
+                    padding: 0.5rem 0.75rem;
+                    font-size: 0.45rem;
+                    font-weight: 300;
+                    display: block;
+                    width: max-content;
+                    margin: auto;
+                }
+                
+                .badge-gradient-success,
+                .badge-gradient-warning,
+                .badge-gradient-info,
+                .badge-gradient-danger {
+                    padding: 10px 0px;
+                    
+                }
+
+                .profile1-section {
+                    margin-top: 2100px;
+                    margin-left: 0; 
+                    margin-right: 0;
+                   
+                }
+
+                .toggle-profile {
+                    margin-left: 10px; 
+                    margin-right: 10px; 
+                    display: none;
+                }
+
+                .toggle-profile i {
+                    font-size: 16px;
+                }
+
+                .large-card {
+                    position: relative;
+                    flex: 0 0 60%; 
+                    
+                    margin-left: -10px;
+                    
+                    
+                }
+                .small-card {
+                   
+                    margin-left: -17px; 
+                    
+                    
+                }
+
+                .white-box {
+                    padding: 10px; 
+                }
+
+                .card123 {
+                    width: 100%; 
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                .card123:last-child {
+                    margin-bottom: 0;
+                }
+
+                .details {
+                    padding: 5px;
+                }
+
+               
+                
+
+                
+                
+        }
+        @media screen and (min-width: 576px) {
+            .doughnut-container .short-labels {
+                display: none;
+            }
+        }
+
+
+        @media screen and (max-width: 575px) {
+            .doughnut-container .full-labels {
+                display: none;
+            }
+        }
+
+
+        @media screen and (max-width: 280px) {
+            .dashboard-container {
+                        flex-direction: column; 
+                        overflow-x: hidden;
+                          
+                    }
+                    .profile-section {
+                        display: none;
+                    }
+                    .profile-section,
+                    .dashboard-section,
+                    .profile1-section {
+                        width: 100%;
+                    }
+
+
+                .search-bar {
+                    display: none;
+                }
+
+                #mobileMenuIcon {
+                    display: block;
+                    text-align: right;
+                    padding: 10px;
+                    cursor: pointer;
+                    color: rgb(7, 6, 104);
+                    font-size: 24px;
+                }
+
+            
+                .icon-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    margin-top: 10px; 
+                    text-align: center;
+                    margin: -70px; 
+                    
+                }
+                .icon-container div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+                
+
+                .icon-container div i {
+                    font-size: 30px;
+
+                }
+
+                .card-container {
+                    font-size: 8px;
+                }
+                
+                .header-image {
+                    position: absolute;
+                    top: 60px; 
+                    right: 10px; 
+                    width: 100px; 
+                    height: 150px; 
+        
+                }
+                .table{
+                    width: 150px;
+                    font-size: 3px;
+                }
+                .table td, .table th {
+                    padding: 0.3rem;
+                    width: 50px; 
+                }
+
+                .badge {
+                    padding: 0.5rem 0.5rem;
+                    font-size: 0.5rem;
+                    font-weight: 50;
+                    
+                   
+                }
+                
+                .badge-gradient-success,
+                .badge-gradient-warning,
+                .badge-gradient-info,
+                .badge-gradient-danger {
+                    padding: 10px 0px;
+                    
+                }
+
+                .profile1-section {
+                    margin-top: 2020px;
+                    margin-left: 0; 
+                    margin-right: 0;
+                   
+                }
+
+                .toggle-profile {
+                    margin-left: 10px; 
+                    margin-right: 10px; 
+                    display: none;
+                }
+
+                .toggle-profile i {
+                    font-size: 16px;
+                }
+
+                .large-card {
+                    position: relative;
+                    flex: 0 0 60%; 
+                    
+                    margin-left: -10px;
+                    
+                    
+                }
+                .small-card {
+                  
+                    margin-left: -17px; 
+                    
+                    
+                }
+
+                .white-box {
+                    padding: 10px; 
+                }
+
+                .card123 {
+                    width: 100%; 
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                .card123:last-child {
+                    margin-bottom: 0;
+                }
+
+                .details {
+                    padding: 5px;
+                }     
+                
+                .doughnut-container{
+                    width: fit-content;
+                }
+        }
+
+
+        
+
+        
+        @media screen and (max-width: 540px) {
+            .body{
+                overflow-x: hidden;
+            }
+            .dashboard-container {
+                        flex-direction: column; 
+                        overflow-x: hidden;
+                          
+                    }
+                    .profile-section {
+                        display: none;
+                    }
+                    .profile-section,
+                    .dashboard-section,
+                    .profile1-section {
+                        width: 100%;
+                    }
+
+
+                .search-bar {
+                    display: none;
+                }
+
+                #mobileMenuIcon {
+                    display: block;
+                    text-align: right;
+                    padding: 10px;
+                    cursor: pointer;
+                    color: rgb(7, 6, 104);
+                    font-size: 24px;
+                }
+
+            
+            
+                .icon-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    margin-top: 10px; 
+                    text-align: center;
+                    margin: -70px; 
+                    
+                }
+                .icon-container div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+                
+
+                .icon-container div i {
+                    font-size: 30px;
+
+                }
+                .graph-container{
+                    width: 550px;
+                }
+
+                .doughnut-container{
+                    width: 550px;
+                    height: 550px;
+                }
+
+                .card-container {
+                    font-size: 8px;
+                }
+                
+                .header-image {
+                    position: absolute;
+                    top: 60px; 
+                    right: 10px; 
+                    width: 100px; 
+                    height: 150px; 
+        
+                }
+
+                .table td, .table th {
+                    padding: 0.36rem; 
+                }
+
+                .badge {
+                    padding: 0.5rem 0.75rem;
+                    font-size: 0.45rem;
+                    font-weight: 300;
+                    display: block;
+                    width: max-content;
+                    margin: auto;
+                }
+                
+                .badge-gradient-success,
+                .badge-gradient-warning,
+                .badge-gradient-info,
+                .badge-gradient-danger {
+                    padding: 10px 0px;
+                    
+                }
+
+                .profile1-section {
+                    margin-top: 2250px;
+                    margin-left: 0; 
+                    margin-right: 0;
+                   
+                }
+
+                .profile-info h2 {
+                    margin-left: 115px;
+                }
+
+                .toggle-profile {
+                    margin-left: 10px; 
+                    margin-right: 10px; 
+                    display: none;
+                }
+
+                .toggle-profile i {
+                    font-size: 16px;
+                }
+
+                .large-card {
+                    position: relative;
+                    flex: 0 0 60%; 
+                    
+                    margin-left: -10px;
+                    
+                    
+                }
+                .small-card {
+                   
+                    margin-left: -17px; 
+                    
+                    
+                }
+
+                .white-box {
+                    padding: 10px; 
+                }
+
+                .card123 {
+                    width: 100%; 
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                .card123:last-child {
+                    margin-bottom: 0;
+                }
+
+                .details {
+                    padding: 5px;
+                }       
+        }
+
+        @media only screen and (min-width: 1280px) {
+           
+           .toggle-profile{
+                margin-left: 1190px;
+           }
+        }
+
+</style>
+
+</head>
+
+<body>
+   
+    <div class="dashboard-container">
+        <div id="mobileMenuIcon" onclick="toggleMobileMenu()">
+            <i class="bi bi-list"></i>
+        </div>
+        <script>
+            function toggleMobileMenu() {
+                var profileSection = document.querySelector('.profile-section');
+        
+                if (profileSection.style.display === 'none' || profileSection.style.display === '') {
+                    profileSection.style.display = 'block';
+                } else {
+                    profileSection.style.display = 'none';
+                }
+            }
+            
+
+            window.onload = function() {
+               
+                if (window.innerWidth <= 575) {
+                    var profileSection = document.querySelector('.profile-section');
+                    profileSection.style.display = 'none';
+                }
+
+                if (window.innerWidth <= 768) {
+                    var profileSection = document.querySelector('.profile-section');
+                    profileSection.style.display = 'none'; 
+                }
+
+                if (window.innerWidth <= 820) {
+                    var profileSection = document.querySelector('.profile-section');
+                    profileSection.style.display = 'none'; 
+                }
+
+                if (window.innerWidth <= 912) {
+                    var profileSection = document.querySelector('.profile-section');
+                    profileSection.style.display = 'none'; 
+                }
+
+                if (window.innerWidth <= 1024) {
+                    var profileSection = document.querySelector('.profile-section');
+                    profileSection.style.display = 'none'; 
+                }
+
+                
+            };
+        </script>
+      
+        
+        <div class="profile-section" id="profileSection">
+            <div class="company-logo">
+                <img src="{% static 'images/icon.jpg' %}" alt="Company Logo" style="width: 80px; height: 80px;">
+            </div>
+            <div class="company-name">
+                <span class="letter-blue">P</span>
+                <span class="letter-red">r</span>
+                <span class="letter-yellow">o</span>
+                <span class="letter-green">t</span>
+                <span class="letter-purple">e</span>
+                <span class="letter-orange">c</span>
+                <span class="letter-pink">S</span>
+                <span class="letter-teal">u</span>
+                <span class="letter-teal">r</span>
+                <span class="letter-teal">e</span>  
+            </div>
+            <div class="icon-container">
+                <div id="homeIcon"  onclick="chooseIcon(this)" class="active">
+                    <i class="bi bi-grid"></i> 
+                </div>
+                <div onclick="chooseIcon(this)">
+                    <i class="bi bi-journal-text"></i> 
+                </div>
+                <div onclick="chooseIcon(this)">
+                    <i class="bi bi-person-plus"></i> 
+                </div> 
+                <div onclick="chooseIcon(this)">
+                    <i class="bi bi-eye"></i> 
+                </div> 
+                <div onclick="chooseIcon(this)">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                </div> 
+                
+            </div>
+            
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="additional-content">
+                <img src="{% static 'images/456.png' %}" alt="Additional Image" style="width: 200px; height: 200px;">
+                <p>Explore the power of insurance management for better customer relationships.</p>
+                <button class="get-started-button">Learn More</button>
+            </div>
+            
+            
+            
+            
+        </div> 
+       
+        <div class=" container-fluid dashboard-section">
+           
+            <h2>Welcome! Admin</h2>
+            
+            <span id="welcomeDate"></span>
+            <br>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Search...">
+                        <span class="search-icon" role="img" aria-label="Search">🔍</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row1">
+                <div class="col-md-6">
+                    <div class="card-container">
+                        <div class="card large-card">
+                            <div class="card-header">
+                                <img src="{% static 'images/786.JPG' %}" alt="Profile Picture" class="header-image">
+                            </div>
+                            <div class="card-content">
+                                <h3>Empower Your Insurance Management</h3>
+                                <p>Streamline operations and elevate customer.</p>
+                                <p>Discover the advantages of modern insurance!</p>
+                            </div>                                                     
+                            <div class="card-footer">
+                                <button class="try-now-button" data-toggle="modal" data-target="#myModal">Try Now</button>
+                            </div>
+                        </div>
+                
+                        <div class="card small-card">
+                            <div class="profile-pic"></div>
+                            <div class="info-container">
+                                <h3 style="color: rgb(255, 255, 255);">Admin</h3>
+                                <p>Insurance Sales Admin</p>
+                                <p>admin@example.com</p>
+                                <div class="contact-icons">
+                                    <button class="message-button" onclick="animateMessage()">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Message
+                                    </button>
+
+                                    <div id="chatbox" class="chatbox">
+                                        <button class="close-button" onclick="closeChatbox()">X</button>
+                                        <div class="chat-header">
+                                            Messenger Chat
+                                        </div>
+                                        <div class="chat-messages" id="chat-messages">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="message-input" placeholder="Type your message...">
+                                            <button onclick="sendMessage()">Send</button>
+                                        </div>
+                                    </div>
+
+                                    <i class="fas fa-phone-alt call-icon"></i>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="container1">
+                
+                <div class="white-box">
+                    <h2 class="right-align">Insurance Agent Details
+                        <div class="icons">
+                            <a href="{% url 'Company_AddAgent' %}"><i class="fas fa-plus"></i></a>
+                            <a href="{% url 'Company_AgentDetails' %}"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </h2>
+                    <br>
+                    <div class="card123">
+                        <img src="{% static 'images/face8.jpg' %}" alt="Agent 1 Image" style="height: 200px;">
+                        <div class="details">
+                            <p><strong>Name:</strong> Varun Dev</p>
+                            <p><strong>Position:</strong> Insurance Agent</p>
+                            <p><strong>Email:</strong>varun@example.com</p>
+                            <p><strong>Phone:</strong> +1234567890</p>
+                        </div>
+                    </div>
+                   
+                    <div class="card123">
+                        <img src="{% static 'images/face9.avif' %}" alt="Agent 2 Image" style="height: 200px;">
+                        <div class="details">
+                            <p><strong>Name:</strong> Laksh Gopinath</p>
+                            <p><strong>Position:</strong> Senior Insurance Agent</p>
+                            <p><strong>Email:</strong> laksh@example.com</p>
+                            <p><strong>Phone:</strong> +9876543210</p>
+                        </div>
+                    </div>
+                   
+                    <div class="card123">
+                        <img src="{% static 'images/face10.avif' %}" alt="Agent 3 Image" style="height: 200px;">
+                        <div class="details">
+                            <p><strong>Name:</strong> Emily Smith</p>
+                            <p><strong>Position:</strong> Insurance Consultant</p>
+                            <p><strong>Email:</strong> emily.smith@example.com</p>
+                            <p><strong>Phone:</strong> +1112223333</p>
+                        </div>
+                    </div>
+
+                    <div class="see-more">
+                        <button onclick="location.href='/Company_AgentDetails/'">See More</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Recent Visits</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Agent</th>
+                                            <th>Client</th>
+                                            <th>Address</th>
+                                            <th>Document</th>
+                                            <th>Visit Time & Date</th>
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img src="{% static 'images/face8.jpg' %}" class="me-2" alt="image"> Vishnu
+                                            </td>
+                                            <td>
+                                                <img src="{% static 'images/face1.jpg' %}" class="me-2" alt="image"> John
+                                            </td>
+                                            <td>123 Main St, Springfield</td>
+                                            <td>
+                                                <a class="badge badge-gradient-danger" target="_blank" style="text-decoration: none;">View Document</a>
+                                            </td>
+                                            <td>Apr 3, 2024, 10:00 AM</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="{% static 'images/face9.avif' %}" class="me-2" alt="image"> Navya
+                                            </td>
+                                            <td>
+                                                <img src="{% static 'images/face2.jpg' %}" class="me-2" alt="image"> Jane Smith
+                                            </td>
+                                            <td>456 Oak St, Maplewood</td>
+                                            <td>
+                                                <a class="badge badge-gradient-danger" target="_blank" style="text-decoration: none;">View Document</a>
+                                            </td>
+                                            <td>Apr 2, 2024, 3:30 PM</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="{% static 'images/face10.avif' %}" class="me-2" alt="image"> Anju
+                                            </td>
+                                            <td>
+                                                <img src="{% static 'images/face3.jpg' %}" class="me-2" alt="image"> Emily Johnson
+                                            </td>
+                                            <td>789 Elm St, Oakville</td>
+                                            <td>
+                                                <a class="badge badge-gradient-danger" target="_blank" style="text-decoration: none;">View Document</a>
+                                            </td>
+                                            <td>Apr 1, 2024, 2:00 PM</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="{% static 'images/face5.jpg' %}" class="me-2" alt="image"> Praveen
+                                            </td>
+                                            <td>
+                                                <img src="{% static 'images/face4.jpg' %}" class="me-2" alt="image"> Michael Brown
+                                            </td>
+                                            <td>101 Pine St, Brookville</td>
+                                            <td>
+                                                <a  class="badge badge-gradient-danger" target="_blank" style="text-decoration: none;">View Document</a>
+                                            </td>
+                                            <td>Mar 31, 2024, 11:15 AM</td>
+                                            
+                                        </tr>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        
+            <div class="doughnut-graph-container">
+                <div class="graph-container">
+                    <h3>Policy Coverage | This Month </h3>
+                    <canvas id="barGraph" class="graph"></canvas>
+                </div>
+                <div class="doughnut-container">
+                    <h3>Claim Settlement Ratio | This Month</h3>
+                    <canvas id="doughnutChart" class="graph"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="toggle-profile" onclick="toggleProfileSection()">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="profile1-section">
+            <div class="profile-picture ">
+                <img src="{% static 'images/123.jpg' %}" alt="Profile Picture">
+            </div>
+        
+            <div class="profile-info">
+                <h2>Administrator</h2>
+                <p>Insurance Sales Admin</p>
+            </div>
+            
+            <div class="scheduler-container">
+                <h3>Upcoming Client Meetings</h3>
+            
+                <div class="scheduler-card" id="card1">
+                    <div class="card-content">
+                        <a href="#" class="event-button">Client Consultation</a>
+                        <a href="#" class="website-link">
+                            <i class="fas fa-link"></i> www.insurance-meeting.com
+                        </a>
+                        <div class="date">
+                            <i class="fas fa-calendar-alt calendar-icon"></i> 15 April 2024
+                        </div>
+                        <br>
+                    </div>
+                    <div class="scrolling-line">
+                        <div class="round-indicator"></div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="scheduler-card" id="card2">
+                    <div class="card-content">
+                        <a href="#" class="event-button">Policy Review</a>
+                        <a href="#" class="website-link">
+                            <i class="fas fa-link"></i> www.policy-review.com
+                        </a>
+                        <div class="date">
+                            <i class="fas fa-calendar-alt calendar-icon"></i> 18 April 2024
+                        </div>
+                        <br>
+                    </div>
+                    
+                    <div class="scrolling-line">
+                        <div class="round-indicator"></div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="scheduler-card" id="card3">
+                    <div class="card-content">
+                        <a href="#" class="event-button">Claim Assistance</a>
+                        <a href="#" class="website-link">
+                            <i class="fas fa-link"></i> www.claim-assistance.com
+                        </a>
+                        <div class="date">
+                            <i class="fas fa-calendar-alt calendar-icon"></i> 20 April 2024
+                        </div>
+                    </div>
+                    <div class="scrolling-line">
+                        <div class="round-indicator"></div>
+                    </div>
+                </div>  
+            </div>
+            
+
+            <div class="budget">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Insurance Budget Report</h5>
+            
+                    <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+                </div>
+            </div>
+            
+        </div> 
+        
+    </div>
+    
+    <script src="{% static 'vendor/chart.js/chart.umd.js' %}"></script>
+    <script src="{% static 'vendor/echarts/echarts.min.js' %}"></script>
+    
+
+
+   
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggable/1.1.0/draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+
+    
+    
+    <script>
+        function toggleProfileSection() {
+            var profileSection = document.querySelector('.profile1-section');
+            profileSection.classList.toggle('hidden');
+        }
+    </script>
+    
+    
+    <script>
+        
+        function toggleProfile() {
+            var profileSection = document.getElementById("profileSection");
+            profileSection.style.display = (profileSection.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            toggleProfile();
+        });
+
+        
+    </script>
+    <script>
+        function bulgeIcon(icon) {
+            icon.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                icon.style.transform = 'scale(1)';
+            }, 300);
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function formatDate(date) {
+                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                return new Intl.DateTimeFormat('en-US', options).format(date);
+            }
+            const currentDate = new Date();
+            document.getElementById('welcomeDate').textContent = formatDate(currentDate);
+        });
+    </script>
+    <script>
+        var barGraphData = {
+            labels: ['January', 'February', 'March', 'April', 'May'],
+            datasets: [{
+                label: 'Monthly Sales',
+                backgroundColor: '#8DA9C4',
+                data: [50, 70, 120, 90, 110],
+            }]
+        };
+        var barGraphOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        };
+        var barGraphCanvas = document.getElementById('barGraph').getContext('2d');
+        new Chart(barGraphCanvas, {
+            type: 'bar',
+            data: barGraphData,
+            options: barGraphOptions
+        });
+
+        
+        var labelsFull = ['Policyholders', 'Leads', 'Opportunities', 'Contacts', 'Accounts'];
+        var labelsShort = ['Policy', 'Leads', 'Opps', 'Cont', 'Accts'];
+
+
+        function setLabels() {
+            var screenWidth = window.innerWidth;
+            if (screenWidth <= 575) {
+                return labelsShort;
+            } else {
+                return labelsFull; 
+            }
+        }
+
+        var doughnutChartData = {
+            labels: setLabels(), 
+            datasets: [{
+                data: [15, 25, 20, 10, 15],
+                backgroundColor: ['#0B2545', '#8DA9C4', '#13315C', '#134074','#EEF4ED'],
+            }]
+        };
+
+       
+        var doughnutChartOptions = {
+            responsive: true,
+            cutout: '80',
+            layout: {
+                padding: {
+                    top: 20 
+                }
+            }
+        };
+        var doughnutChartCanvas = document.getElementById('doughnutChart').getContext('2d');
+        new Chart(doughnutChartCanvas, {
+            type: 'doughnut',
+            data: doughnutChartData,
+            options: doughnutChartOptions
+        });
+    </script>
+   
+    <script>
+        function animateMessage() {
+            var chatbox = document.getElementById("chatbox");
+            chatbox.style.display = "block";
+            chatbox.classList.add("slide-in");
+        }
+
+        function closeChatbox() {
+            var chatbox = document.getElementById("chatbox");
+            chatbox.style.display = "none";
+            chatbox.classList.remove("slide-in");
+        }
+
+        function sendMessage() {
+            var messageInput = document.getElementById("message-input");
+            var message = messageInput.value;
+
+            if (message.trim() !== "") {
+                var chatMessages = document.getElementById("chat-messages");
+                var newMessage = document.createElement("div");
+                newMessage.textContent = message;
+                chatMessages.appendChild(newMessage);
+                messageInput.value = "";
+            }
+        }
+
+    </script>
+    
+    <script>
+        let isDragging = false;
+        let startX;
+        const scrollingLine = document.querySelector('.scheduler-card .scrolling-line');
+        const roundIndicator = document.querySelector('.scheduler-card .round-indicator');
+
+        roundIndicator.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollingLine.style.transition = 'none';
+            roundIndicator.style.transition = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const offsetX = e.pageX - startX;
+            const newLeft = Math.max(0, roundIndicator.offsetLeft + offsetX);
+            roundIndicator.style.left = `${newLeft}px`;
+            startX = e.pageX;
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                scrollingLine.style.transition = 'background-color 0.3s';
+                roundIndicator.style.transition = 'left 0.3s';
+                isDragging = false;
+            }
+        });
+
+
+
+        const headings = document.querySelectorAll('.heading');
+        headings.forEach(heading => {
+            heading.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+    
+            heading.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (isDragging) {
+                    const destinationHeading = heading;
+                    destinationHeading.appendChild(draggedCard);
+                    isDragging = false;
+                }
+            });
+        });
+    
+        function dragStart(e) {
+            isDragging = true;
+            startX = e.pageX;
+            draggedCard = e.target;
+            e.dataTransfer.effectAllowed = 'move';
+        }
+    
+        function dragMove(e) {
+            if (isDragging) {
+                const offsetX = e.pageX - startX;
+                const rotation = offsetX / 5; 
+                draggedCard.style.transform = `translateX(${offsetX}px) rotate(${rotation}deg)`;
+            }
+        }
+    
+        function dragEnd() {
+            if (isDragging) {
+                draggedCard.style.transform = 'none';
+                isDragging = false;
+            }
+        }
+    
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('dragstart', dragStart);
+            card.addEventListener('drag', dragMove);
+            card.addEventListener('dragend', dragEnd);
+        });
+    </script>
+    <script>
+        function loadHomePage() {
+            window.location.href = '/';
+        }
+    
+        var selectedIcon = null;
+    
+        function chooseIcon(element) {
+            if (selectedIcon) {
+                selectedIcon.classList.remove('active');
+            }
+            element.classList.add('active');
+            selectedIcon = element;
+    
+            var iconClass = element.querySelector('i').classList;
+    
+            switch (true) {
+                case iconClass.contains('bi-grid'):
+                    window.location.href = "{% url 'Company_Dashboard' %}";
+                    break;
+                case iconClass.contains('bi-journal-text'):
+                    window.location.href = "{% url 'Company_AssignAgent' %}";
+                    break;
+                case iconClass.contains('bi-person-plus'):
+                    window.location.href = "{% url 'Company_AddAgent' %}";
+                    break;
+                case iconClass.contains('bi-eye'):
+                    window.location.href = "{% url 'Company_AgentDetails' %}";
+                    break;
+                case iconClass.contains('bi-box-arrow-in-right'):
+                    window.location.href = "{% url 'index' %}";
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+            legend: {
+                data: ['Premium Allocation', 'Claim Expenses']
+            },
+            radar: {
+                indicator: [{
+                    name: 'Sales',
+                    max: 6500
+                },
+                {
+                    name: 'Administration',
+                    max: 16000
+                },
+                {
+                    name: 'Information Technology',
+                    max: 30000
+                },
+                {
+                    name: 'Customer Support',
+                    max: 38000
+                },
+                {
+                    name: 'Development',
+                    max: 52000
+                },
+                {
+                    name: 'Marketing',
+                    max: 25000
+                }
+                ]
+            },
+            series: [{
+                name: 'Policy vs Expenses',
+                type: 'radar',
+                data: [{
+                    value: [4200, 3000, 20000, 35000, 50000, 18000],
+                    name: 'Premium Allocation'
+                },
+                {
+                    value: [5000, 14000, 28000, 26000, 42000, 21000],
+                    name: 'Claim Expenses'
+                }
+                ]
+            }]
+            });
+        });
+    </script>
+    
+    <script>
+        function logout() {
+            console.log("Logout button clicked.");
+            window.location.href = "index.html";
+        }
+    </script>
+    
+    
+    
+    
+
+</body>
+</html>
+
+
+
+
+
